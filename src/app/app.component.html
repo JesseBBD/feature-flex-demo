@@ -1,0 +1,32 @@
+<main>
+    <article>
+        <h1 class="heading">Environment: {{ environmentName }}</h1>
+        <div class="table-container">
+            <table class="flags-table">
+                <thead>
+                    <tr>
+                        <th>Flag Name</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let flag of flags">
+                        <td>{{ flag }}</td>
+                        <td [ngClass]="getFlagStatus(flag) ? 'active' : 'inactive'">
+                            {{ getFlagStatus(flag) }}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </article>
+    <section class="flags-section">
+        @if(getFlagStatus(flags[0])){
+        <img src="ghana.gif" />
+        } @if(getFlagStatus(flags[1])){
+        <img src="sa.gif" />
+        }
+    </section>
+</main>
+
+<router-outlet />
